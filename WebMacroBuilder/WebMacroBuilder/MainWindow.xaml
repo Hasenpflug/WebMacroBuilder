@@ -1,0 +1,58 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebMacroBuilder"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Collections="clr-namespace:System.Collections;assembly=mscorlib" x:Class="WebMacroBuilder.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="566" Width="849.327" WindowStartupLocation="Manual">
+    <Grid>
+        <TabControl x:Name="tabControl" TabStripPlacement="Left">
+            <TabItem Width="80" Height="100" FontSize="20" Header="Builder">
+                <Grid x:Name="Container" Background="#FFE5E5E5">
+                    <Grid x:Name="Tasks" Margin="0,10,10,0" d:IsHidden="True">
+                        <Button x:Name="btnTaskCreate" HorizontalAlignment="Left" Margin="210,27,0,0" VerticalAlignment="Top" Width="145" Height="40" Content="New Task" Click="btnTaskCreate_Click"/>
+                        <DataGrid x:Name="dtgTasks" HorizontalAlignment="Left" Margin="58,84,0,0" VerticalAlignment="Top" Height="402" Width="634" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ID}" Header="ID" ClipboardContentBinding="{x:Null}"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Name" ClipboardContentBinding="{x:Null}"/>
+                                <DataGridTextColumn Binding="{Binding BaseUrl}" Header="Target" ClipboardContentBinding="{x:Null}"/>
+                                <DataGridTextColumn Binding="{Binding CommandCount}" Header="Commmand Count" ClipboardContentBinding="{x:Null}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button x:Name="btnTaskBuild" Content="Build Task" HorizontalAlignment="Left" Margin="58,27,0,0" VerticalAlignment="Top" Width="132" Height="41"/>
+                        <Button x:Name="btnTaskEdit" Content="Edit Task" HorizontalAlignment="Left" Margin="374,26,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskEdit_Click"/>
+                        <Button x:Name="btnTaskDelete" Content="Delete Task" HorizontalAlignment="Left" Margin="531,26,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskDelete_Click"/>
+                    </Grid>
+                    <Grid x:Name="Nodes" Margin="21,20,10,10" Visibility="Visible">
+                        <Button x:Name="btnTaskIndex" Content="Task Index" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_1" Height="39"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="27,54,44,10">
+                            <WrapPanel x:Name="pnlCommandViewer" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Runner" Width="80" Height="100" FontSize="20">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dataGrid_Copy" HorizontalAlignment="Left" Margin="58,93,0,0" VerticalAlignment="Top" Height="408" Width="617">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID"/>
+                            <DataGridHyperlinkColumn Binding="{x:Null}" ContentBinding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Target"/>
+                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Node Count"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Queries" Width="80" Height="100" FontSize="20">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Tools" Width="80" Height="100" FontSize="20">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+</Window>
+

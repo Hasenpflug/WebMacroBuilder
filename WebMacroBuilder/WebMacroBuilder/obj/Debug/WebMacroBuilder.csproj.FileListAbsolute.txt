@@ -1,0 +1,136 @@
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.pdb
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.baml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\App.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.cache
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.g.resources
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.Properties.Resources.resources
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csproj.GenerateResource.Cache
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.xml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_Content.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.lref
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.baml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.xml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.xml
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.pdb
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.dll
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.Core.dll
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.dll
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.dll
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.xml
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.xml
+D:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.xml
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csprojResolveAssemblyReference.cache
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.baml
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.g.cs
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.g.cs
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\App.g.cs
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_Content.g.cs
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.cache
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.lref
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.baml
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.g.resources
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.Properties.Resources.resources
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csproj.GenerateResource.Cache
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.g.cs
+D:\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.baml
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.pdb
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.dll
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.Core.dll
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.dll
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.dll
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.xml
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.xml
+H:\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.xml
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csprojResolveAssemblyReference.cache
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.baml
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.g.cs
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.g.cs
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.g.cs
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\App.g.cs
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_Content.g.cs
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.cache
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.lref
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.baml
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.baml
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.g.resources
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.Properties.Resources.resources
+H:\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csproj.GenerateResource.Cache
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.baml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilderRepository\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilderRepository\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilderRepository\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.pdb
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.dll
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.xml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.xml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.xml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.baml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\App.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_Content.g.cs
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.cache
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.lref
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.baml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.baml
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.g.resources
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.Properties.Resources.resources
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csproj.GenerateResource.Cache
+C:\Users\Braedon\Desktop\Braedon's Crap\Programming\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csprojResolveAssemblyReference.cache
+C:\Users\bhasen\Source\Repos\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+C:\Users\bhasen\Source\Repos\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+C:\Users\bhasen\Source\Repos\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe.config
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.exe
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.pdb
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.exe
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebMacroBuilder.pdb
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.dll
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.dll
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.dll
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Bson.xml
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\MongoDB.Driver.xml
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\bin\Debug\WebDriver.xml
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csprojResolveAssemblyReference.cache
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.baml
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.g.cs
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.g.cs
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\TaskCreate.g.cs
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\App.g.cs
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_Content.g.cs
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.cache
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder_MarkupCompile.lref
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\CommandCreate.baml
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\MainWindow.baml
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.g.resources
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.Properties.Resources.resources
+C:\Users\bhasen\Documents\WebMacroBuilder\WebMacroBuilder\WebMacroBuilder\obj\Debug\WebMacroBuilder.csproj.GenerateResource.Cache

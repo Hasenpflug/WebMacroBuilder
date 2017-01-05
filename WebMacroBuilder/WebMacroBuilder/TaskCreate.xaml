@@ -1,0 +1,16 @@
+﻿<Window x:Class="WebMacroBuilder.TaskCreate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TaskCreate" Height="321.593" Width="470.667">
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="268" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="438"/>
+        <Label x:Name="lblTitle" Content="Create New Task" HorizontalAlignment="Left" Margin="150,25,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lblName" Content="Name:" HorizontalAlignment="Left" Margin="24,94,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="85,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" RenderTransformOrigin="0.5,0.565" FontSize="16"/>
+        <Label x:Name="lblBaseUrl" Content="Base URL: " HorizontalAlignment="Left" Margin="24,133,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBaseUrl" HorizontalAlignment="Left" Height="23" Margin="163,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" FontSize="16"/>
+        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="174,216,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="16" Click="btnSubmit_Click"/>
+        <Label x:Name="lblProtocolPrefix" Content="http://" HorizontalAlignment="Left" Margin="108,133,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+    </Grid>
+</Window>
