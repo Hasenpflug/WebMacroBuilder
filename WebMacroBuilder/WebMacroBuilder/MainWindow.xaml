@@ -10,7 +10,7 @@
     <Grid>
         <TabControl x:Name="tabControl" TabStripPlacement="Left">
             <TabItem Width="80" Height="100" FontSize="20" Header="Builder">
-                <Grid x:Name="Container" Background="#FFE5E5E5">
+                <Grid x:Name="Container" Background="#FFE5E5E5" d:IsHidden="True">
                     <Grid x:Name="Tasks" Margin="0,10,10,0" d:IsHidden="True">
                         <Button x:Name="btnTaskCreate" HorizontalAlignment="Left" Margin="210,27,0,0" VerticalAlignment="Top" Width="145" Height="40" Content="New Task" Click="btnTaskCreate_Click"/>
                         <DataGrid x:Name="dtgTasks" HorizontalAlignment="Left" Margin="58,84,0,0" VerticalAlignment="Top" Height="402" Width="634" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
@@ -25,7 +25,7 @@
                         <Button x:Name="btnTaskEdit" Content="Edit Task" HorizontalAlignment="Left" Margin="374,26,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskEdit_Click"/>
                         <Button x:Name="btnTaskDelete" Content="Delete Task" HorizontalAlignment="Left" Margin="531,26,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskDelete_Click"/>
                     </Grid>
-                    <Grid x:Name="Nodes" Margin="21,20,10,10" Visibility="Visible">
+                    <Grid x:Name="Nodes" Margin="21,20,10,10" Visibility="Visible" d:IsHidden="True">
                         <Button x:Name="btnTaskIndex" Content="Task Index" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_1" Height="39"/>
                         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="27,54,44,10">
                             <WrapPanel x:Name="pnlCommandViewer" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
@@ -34,16 +34,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Runner" Width="80" Height="100" FontSize="20">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dataGrid_Copy" HorizontalAlignment="Left" Margin="58,93,0,0" VerticalAlignment="Top" Height="408" Width="617">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID"/>
-                            <DataGridHyperlinkColumn Binding="{x:Null}" ContentBinding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Target"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Node Count"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
+                <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem Header="Queries" Width="80" Height="100" FontSize="20">
                 <Grid Background="#FFE5E5E5"/>

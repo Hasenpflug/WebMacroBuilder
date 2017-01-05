@@ -89,14 +89,6 @@ namespace WebMacroBuilder
                     //CommandCount = document.GetValue("Commands").AsBsonArray != BsonNull.Value ? document.GetValue("Commands").AsBsonArray.Count : 0
                 };
 
-                //if (viewModel.CommandCount != 0)
-                //{
-                //    foreach (BsonValue element in document.GetValue("Commands").AsBsonArray)
-                //    {
-                //        viewModel.Commands.Add(DbContextTools.PopulateCommandViewModel(element));
-                //    }
-                //}
-
                 return viewModel;
             }
             else
