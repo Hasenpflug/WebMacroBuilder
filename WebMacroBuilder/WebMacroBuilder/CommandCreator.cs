@@ -18,6 +18,7 @@ namespace WebMacroBuilder
         {
             Name = "btnCommandCreator";
             Content = ">>>";
+
         }
 
         public CommandCreator(int order, string baseURL, ObjectId taskID)
