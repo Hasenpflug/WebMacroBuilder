@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MongoDB.Bson;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,11 @@ namespace WebMacroBuilder
 
         public int WaitForSeconds { get; set; }
         
-        public ClickCommand(string taskBaseURL, int order, string name, bool enabled, string label, string target, string selector, string waitSelector, int waitForSeconds)
+        public ClickCommand(ObjectId commandID, ObjectId taskID, string taskBaseURL, int order, string name, bool enabled, string label, string target, string selector, string waitSelector, int waitForSeconds)
             : base(name)
         {
+            ID = commandID;
+            TaskID = taskID;
             TaskBaseURL = taskBaseURL;
             Order = order;
             Content = label;

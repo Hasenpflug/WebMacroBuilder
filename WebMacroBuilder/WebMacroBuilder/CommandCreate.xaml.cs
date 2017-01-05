@@ -42,14 +42,14 @@ namespace WebMacroBuilder
             : this()
         {
             CommandURL = creator.CommandURL;
-            Command = new Command(creator.TaskID, "", creator.Order, CommandType.Click, true, "", "", 0);
+            Command = new Command(ObjectId.Empty, creator.TaskID, "", creator.Order, CommandType.Click, true, "", "", 0);
         }
 
         public CommandCreate(ClickCommand creator)
             : this()
         {
             CommandURL = creator.TaskBaseURL;
-            Command = new Command(creator.TaskID, creator.Name, creator.Order, CommandType.Click, creator.Enabled, creator.Selector, creator.WaitSelector, creator.WaitForSeconds);
+            Command = new Command(creator.ID, creator.TaskID, creator.Name, creator.Order, CommandType.Click, creator.Enabled, creator.Selector, creator.WaitSelector, creator.WaitForSeconds);
             this.lblCommandCreate.Content = "Command Update";
             this.txtName.Text = Command.Name;
             this.cboType.SelectedIndex = (int)Command.Type;
@@ -124,6 +124,7 @@ namespace WebMacroBuilder
             }
 
             this.btnClickSubmit.IsEnabled = false;
+            this.btnDeleteCommand.IsEnabled = false;
             this.btnClickCancel.IsEnabled = false;
             await Task.Run(() => StartDriver());
             this.btnGetSelector.IsEnabled = true;
@@ -151,6 +152,7 @@ namespace WebMacroBuilder
             await Task.Run(() => QuitDriver());
             this.btnAddSelector.IsEnabled = true;
             this.btnClickSubmit.IsEnabled = true;
+            this.btnDeleteCommand.IsEnabled = true;
             this.btnClickCancel.IsEnabled = true;
         }
 
@@ -168,6 +170,14 @@ namespace WebMacroBuilder
                 string selector = ((IJavaScriptExecutor)Driver).ExecuteScript("return window.selector;").ToString();
                 this.txtWaitSelector.Text = selector;
             }
+        }
+
+        private async void btnDeleteCommand_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
+            await window.Context.DeleteCommand(Command);
+            await window.PopulateNodeGrid(Command.TaskID);
+            this.Close();
         }
     }
 }

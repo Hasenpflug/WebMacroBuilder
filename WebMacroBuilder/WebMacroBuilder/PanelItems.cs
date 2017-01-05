@@ -20,6 +20,8 @@ namespace WebMacroBuilder
 
         public string Target { get; set; }
 
+        public ObjectId ID { get; set; }
+
         public ObjectId TaskID { get; set; }
 
         public PanelItems(string name = null)

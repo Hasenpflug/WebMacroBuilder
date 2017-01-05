@@ -108,7 +108,7 @@ namespace WebMacroBuilder
                 switch (commands[i].Type)
                 {
                     case CommandType.Click:
-                        ClickCommand clickCommand = new ClickCommand(commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name, 
+                        ClickCommand clickCommand = new ClickCommand(commands[i].ID, commands[i].TaskID, commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name, 
                             commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds);
                         clickCommand.Click += btnCommandCreator_Click;
                         window.pnlCommandViewer.Children.Add(clickCommand);
@@ -200,11 +200,6 @@ namespace WebMacroBuilder
             {
                 System.Windows.Forms.MessageBox.Show("Please select a Task to edit. ");
             }
-        }
-
-        private void btnEditCommand_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

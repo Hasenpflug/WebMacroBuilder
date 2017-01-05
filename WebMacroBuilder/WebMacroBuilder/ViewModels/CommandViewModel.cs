@@ -10,6 +10,8 @@ namespace WebMacroBuilder.ViewModels
 {
     public class CommandViewModel
     {
+        public ObjectId TaskID { get; set; }
+
         public bool Enabled { get; set; }
 
         public string TaskBaseURL { get; set; }
@@ -33,9 +35,10 @@ namespace WebMacroBuilder.ViewModels
 
         }
 
-        public CommandViewModel(ObjectId id, string baseURL, string name, int order, CommandType type, string selector, string waitSelector, int waitForSeconds)
+        public CommandViewModel(ObjectId id, ObjectId taskID, string baseURL, string name, int order, CommandType type, string selector, string waitSelector, int waitForSeconds)
         {
             ID = id;
+            TaskID = taskID;
             Name = name;
             Order = order;
             Type = type;

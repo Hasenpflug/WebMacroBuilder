@@ -8,8 +8,9 @@
         Title="CommandCreate" Height="587.088" Width="953.329">
     <Grid>
         <Grid x:Name="dtgClickForm" HorizontalAlignment="Left" Height="527" Margin="498,19,0,0" VerticalAlignment="Top" Width="437">
-            <Button x:Name="btnClickSubmit" Content="Submit" HorizontalAlignment="Left" Margin="54,470,0,0" VerticalAlignment="Top" Width="103" Height="33" FontSize="16" Click="btnClick_Submit_Click"/>
-            <Button x:Name="btnClickCancel" Content="Cancel" HorizontalAlignment="Left" Margin="254,470,0,0" VerticalAlignment="Top" Width="100" Height="33" FontSize="16" Click="btnClick_Cancel_Click"/>
+            <Button x:Name="btnClickSubmit" Content="Submit" HorizontalAlignment="Left" Margin="23,470,0,0" VerticalAlignment="Top" Width="103" Height="33" FontSize="16" Click="btnClick_Submit_Click"/>
+            <Button x:Name="btnClickCancel" Content="Cancel" HorizontalAlignment="Left" Margin="327,470,0,0" VerticalAlignment="Top" Width="100" Height="33" FontSize="16" Click="btnClick_Cancel_Click"/>
+            <Button x:Name="btnDeleteCommand" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" Margin="181,470,0,0" Height="33" FontSize="16" Click="btnDeleteCommand_Click"/>
         </Grid>
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="502" Margin="488,19,0,0" VerticalAlignment="Top" Width="5"/>
         <Grid HorizontalAlignment="Left" Height="526" Margin="8,20,0,0" VerticalAlignment="Top" Width="475">
@@ -43,7 +44,6 @@
             <Button x:Name="btnWaitGetSelector" Content="Get Selector" HorizontalAlignment="Left" Margin="349,241,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="0.507,0.55" Height="61" FontSize="16" IsEnabled="False" Click="btnWaitGetSelector_Click"/>
             <Label x:Name="lblWaitFor" Content="Wait For Seconds:" HorizontalAlignment="Left" Margin="17,371,0,0" VerticalAlignment="Top" FontSize="16"/>
             <TextBox x:Name="txtWaitFor" HorizontalAlignment="Left" Height="23" Margin="158,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-            <Button x:Name="btnDeleteCommand" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Margin="374,10,0,0" Height="25" FontSize="16"/>
         </Grid>
 
     </Grid>

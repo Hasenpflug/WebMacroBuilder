@@ -18,19 +18,7 @@ namespace WebMacroBuilder.Models
 
     public class Command
     {
-        public Command() { }
-
-        public Command(ObjectId taskID, string name, int order, CommandType type, bool enabled, string selector, string waitSelector, int waitForSeconds)
-        {
-            TaskID = taskID;
-            Name = name;
-            Type = type;
-            Enabled = enabled;
-            Order = order;
-            Selector = selector;
-            WaitSelector = waitSelector;
-            WaitForSeconds = waitForSeconds;
-        }        
+        public ObjectId ID { get; set; }
 
         public bool Enabled { get; set; }
 
@@ -47,5 +35,20 @@ namespace WebMacroBuilder.Models
         public string WaitSelector { get; set; }
 
         public int WaitForSeconds { get; set; }
+
+        public Command() { }
+
+        public Command(ObjectId commandID, ObjectId taskID, string name, int order, CommandType type, bool enabled, string selector, string waitSelector, int waitForSeconds)
+        {
+            ID = commandID;
+            TaskID = taskID;
+            Name = name;
+            Type = type;
+            Enabled = enabled;
+            Order = order;
+            Selector = selector;
+            WaitSelector = waitSelector;
+            WaitForSeconds = waitForSeconds;
+        }
     }
 }

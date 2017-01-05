@@ -45,7 +45,8 @@ namespace WebMacroBuilder
                         CommandViewModel viewModel = new CommandViewModel
                         {
                             Enabled = document.GetValue("Enabled") != BsonNull.Value ? document.GetValue("Enabled").AsBoolean : false,
-                            ID = (ObjectId)document.GetValue("_id"),
+                            ID = document.GetValue("_id").AsObjectId,
+                            TaskID = document.GetValue("TaskID").AsObjectId,
                             Name = document.GetValue("Name") != BsonNull.Value ? document.GetValue("Name").AsString : null,
                             Order = document.GetValue("Order") != BsonNull.Value ? document.GetValue("Order").AsInt32 : 0,
                             Type = document.GetValue("Type") != BsonNull.Value ? (CommandType)document.GetValue("Type").AsInt32 : CommandType.Click,
@@ -153,8 +154,8 @@ namespace WebMacroBuilder
         {
             var collection = database.GetCollection<BsonDocument>("commands");
             var filter = Builders<BsonDocument>.Filter.Eq("TaskID", command.TaskID) & Builders<BsonDocument>.Filter.Gte("Order", command.Order) & !Builders<BsonDocument>.Filter.Eq("Name", command.Name);
-            //await collection.UpdateOneAsync(filter, Builders<MacroTask>.Update.Push(m => m.Commands, command));
             BsonDocument document = command.ToBsonDocument();
+            document.Remove("ID");
 
             await collection.InsertOneAsync(document);
             await collection.UpdateManyAsync(filter, Builders<BsonDocument>.Update.Inc("Order", 1));
@@ -175,10 +176,15 @@ namespace WebMacroBuilder
 
             for (int i = 1; i < taskIDs.Count; i++)
             {
-                filter = filter | Builders<BsonDocument>.Filter.Eq("_id", taskIDs[i]);
+                filter = filter | Builders<BsonDocument>.Filter.Eq("_id", taskIDs[i]);                
             }
 
             await collection.DeleteManyAsync(filter);
+
+            for (int i = 0; i < taskIDs.Count; i++)
+            {
+                await DeleteTaskCommands(taskIDs[i]);
+            }
         }
 
         public async Task DeleteTaskCommands(ObjectId taskID)
@@ -187,6 +193,16 @@ namespace WebMacroBuilder
             var filter = Builders<BsonDocument>.Filter.Eq("TaskID", taskID);
 
             await collection.DeleteManyAsync(filter);
+        }
+
+        public async Task DeleteCommand(Command command)
+        {
+            var collection = database.GetCollection<BsonDocument>("commands");
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", command.ID);
+            var updateFilter = Builders<BsonDocument>.Filter.Gte("Order", command.Order);
+
+            await collection.DeleteOneAsync(deleteFilter);
+            await collection.UpdateManyAsync(updateFilter, Builders<BsonDocument>.Update.Inc("Order", -1));
         }
     }
 }
