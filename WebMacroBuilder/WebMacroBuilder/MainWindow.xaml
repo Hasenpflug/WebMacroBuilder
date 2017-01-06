@@ -10,7 +10,7 @@
     <Grid>
         <TabControl x:Name="tabControl" TabStripPlacement="Left">
             <TabItem Width="80" Height="100" FontSize="20" Header="Builder">
-                <Grid x:Name="Container" Background="#FFE5E5E5" d:IsHidden="True">
+                <Grid x:Name="Container" Background="#FFE5E5E5">
                     <Grid x:Name="Tasks" Margin="0,10,10,0" d:IsHidden="True">
                         <Button x:Name="btnTaskCreate" HorizontalAlignment="Left" Margin="210,27,0,0" VerticalAlignment="Top" Width="145" Height="40" Content="New Task" Click="btnTaskCreate_Click"/>
                         <DataGrid x:Name="dtgTasks" HorizontalAlignment="Left" Margin="58,84,0,0" VerticalAlignment="Top" Height="402" Width="634" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
@@ -21,15 +21,24 @@
                                 <DataGridTextColumn Binding="{Binding CommandCount}" Header="Commmand Count" ClipboardContentBinding="{x:Null}"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button x:Name="btnTaskBuild" Content="Build Task" HorizontalAlignment="Left" Margin="58,27,0,0" VerticalAlignment="Top" Width="132" Height="41"/>
+                        <Button x:Name="btnTaskRun" Content="Run Task" HorizontalAlignment="Left" Margin="58,27,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskRun_Click"/>
                         <Button x:Name="btnTaskEdit" Content="Edit Task" HorizontalAlignment="Left" Margin="374,26,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskEdit_Click"/>
                         <Button x:Name="btnTaskDelete" Content="Delete Task" HorizontalAlignment="Left" Margin="531,26,0,0" VerticalAlignment="Top" Width="132" Height="41" Click="btnTaskDelete_Click"/>
                     </Grid>
                     <Grid x:Name="Nodes" Margin="21,20,10,10" Visibility="Visible" d:IsHidden="True">
-                        <Button x:Name="btnTaskIndex" Content="Task Index" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_1" Height="39"/>
+                        <Button x:Name="btnTaskIndexBuilder" Content="Task Index" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_1" Height="39"/>
                         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="27,54,44,10">
                             <WrapPanel x:Name="pnlCommandViewer" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
                         </ScrollViewer>
+                    </Grid>
+                    <Grid x:Name="Actions" HorizontalAlignment="Left" VerticalAlignment="Top" Width="743" Height="519">
+                        <Button x:Name="btnTaskIndexActions" Content="Task Index" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click_1" Height="39"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="27,54,10,10">
+                            <WrapPanel x:Name="pnlCommandRunner" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
+                        </ScrollViewer>
+                        <Button x:Name="btnStartTask" Content="Start Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="197,10,0,0" Height="39" Click="btnStartTask_Click"/>
+                        <Button x:Name="btnPauseTask" Content="Pause Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="366,10,0,0" Height="39"/>
+                        <Button x:Name="btnStopTask" Content="Stop Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="531,10,0,0" Height="39"/>
                     </Grid>
                 </Grid>
             </TabItem>

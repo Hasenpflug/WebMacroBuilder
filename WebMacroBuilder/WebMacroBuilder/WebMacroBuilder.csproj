@@ -86,6 +86,7 @@
     <Compile Include="TaskCreate.xaml.cs">
       <DependentUpon>TaskCreate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TaskRunner.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\MacroTaskViewModel.cs" />
     <Page Include="CommandCreate.xaml">

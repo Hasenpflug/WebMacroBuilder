@@ -89,7 +89,18 @@ namespace WebMacroBuilder
 
             window.Nodes.Visibility = Visibility.Visible;
             window.Tasks.Visibility = Visibility.Collapsed;
+            window.Actions.Visibility = Visibility.Collapsed;
             await PopulateNodeGrid(taskID);
+        }
+
+        public async Task ShowTaskRunner(ObjectId taskID)
+        {
+            MainWindow window = (MainWindow)Application.Current.MainWindow;
+
+            window.Actions.Visibility = Visibility.Visible;
+            window.Nodes.Visibility = Visibility.Collapsed;
+            window.Tasks.Visibility = Visibility.Collapsed;
+            await PopulateActionsGrid(taskID);
         }
 
         public async Task PopulateNodeGrid(ObjectId taskID)
@@ -126,6 +137,32 @@ namespace WebMacroBuilder
             window.pnlCommandViewer.Children.Add(new EndNode());
         }
 
+        public async Task PopulateActionsGrid(ObjectId taskID)
+        {
+            string taskBaseURL = (await Context.GetTask(taskID, null)).BaseUrl;
+            List<CommandViewModel> commands = (await Context.GetTaskCommands(taskID)).OrderBy(m => m.Order).ToList();
+            MainWindow window = (MainWindow)Application.Current.MainWindow;
+
+            window.pnlCommandRunner.Children.Clear();
+            window.pnlCommandRunner.Children.Add(new StartNode());
+            for (int i = 0; i < commands.Count; i++)
+            {
+                switch (commands[i].Type)
+                {
+                    case CommandType.Click:
+                        ClickCommand clickCommand = new ClickCommand(commands[i].ID, commands[i].TaskID, commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name,
+                            commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds);
+                        window.pnlCommandRunner.Children.Add(clickCommand);
+                        break;
+                    case CommandType.Type:
+
+                        break;
+                }
+            }
+
+            window.pnlCommandRunner.Children.Add(new EndNode());
+        }
+
         public void btnCommandCreator_Click(object sender, RoutedEventArgs e)
         {
             if (sender.GetType() == typeof(CommandCreator))
@@ -157,6 +194,7 @@ namespace WebMacroBuilder
             window.dtgTasks.ItemsSource = await Context.GetAllTasks();
             window.Tasks.Visibility = Visibility.Visible;
             window.Nodes.Visibility = Visibility.Collapsed;
+            window.Actions.Visibility = Visibility.Collapsed;
         }
 
         private async Task DeleteTask(List<ObjectId> IDs)
@@ -200,6 +238,27 @@ namespace WebMacroBuilder
             {
                 System.Windows.Forms.MessageBox.Show("Please select a Task to edit. ");
             }
+        }
+
+        private async void btnTaskRun_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = (MainWindow)Application.Current.MainWindow;
+            ObjectId taskToView;
+
+            try
+            {
+                taskToView = ((MacroTaskViewModel)window.dtgTasks.SelectedItem).ID;
+                await ShowTaskRunner(taskToView);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Please select a Task to run. ");
+            }
+        }
+
+        private void btnStartTask_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
