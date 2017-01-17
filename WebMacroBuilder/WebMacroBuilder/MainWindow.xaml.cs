@@ -32,7 +32,23 @@ namespace WebMacroBuilder
     public partial class MainWindow : Window
     {
         public IWebDriver driver;
+
         public DbContext Context { get; set; }
+
+        public TaskRunner _taskRunner;
+
+        public TaskRunner TaskRunner
+        {
+            get
+            {
+                if (_taskRunner == null)
+                {
+                    _taskRunner = new TaskRunner(pnlCommandRunner.Children.OfType<ICommandButton>().ToList());
+                }
+
+                return _taskRunner;
+            }
+        }
         
         public MainWindow()
         {
@@ -42,12 +58,6 @@ namespace WebMacroBuilder
 
         public void Setup()
         {
-            //driver = new ChromeDriver(@"C:\Users\Braedon\Desktop\Braedon's Crap\Programming\ChromeDriver\");
-            //driver.Navigate().GoToUrl("http://www.seleniumhq.org/docs/03_webdriver.jsp");
-            //if (driver is IJavaScriptExecutor)
-            //{
-            //    ((IJavaScriptExecutor)driver).ExecuteScript(File.ReadAllText(@"..\..\InitScripts\getSelector.js"));
-            //}
             try
             {
                 Context = new DbContext();
@@ -58,23 +68,6 @@ namespace WebMacroBuilder
             }
 
             ShowTaskIndex();            
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            //if (driver is IJavaScriptExecutor)
-            //{
-            //    ((IJavaScriptExecutor)driver).ExecuteScript("alert(window.selector);");
-            //}
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            //if (driver is IJavaScriptExecutor)
-            //{
-            //    string selector = ((IJavaScriptExecutor)driver).ExecuteScript("return window.selector; ").ToString();
-            //    MessageBox.Show(driver.FindElement(By.CssSelector(selector)).TagName);
-            //}
         }
 
         private void btnTaskCreate_Click(object sender, RoutedEventArgs e)
@@ -101,6 +94,8 @@ namespace WebMacroBuilder
             window.Nodes.Visibility = Visibility.Collapsed;
             window.Tasks.Visibility = Visibility.Collapsed;
             await PopulateActionsGrid(taskID);
+            btnPauseTask.IsEnabled = false;
+            btnStopTask.IsEnabled = false;
         }
 
         public async Task PopulateNodeGrid(ObjectId taskID)
@@ -258,7 +253,10 @@ namespace WebMacroBuilder
 
         private void btnStartTask_Click(object sender, RoutedEventArgs e)
         {
-
+            btnPauseTask.IsEnabled = true;
+            btnStopTask.IsEnabled = true;
+            btnStartTask.IsEnabled = false;
+            TaskRunner.StartDriver();
         }
     }
 }

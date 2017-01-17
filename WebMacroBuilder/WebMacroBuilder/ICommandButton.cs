@@ -15,7 +15,7 @@ namespace WebMacroBuilder
         Stopped
     }
 
-    interface ICommandButton
+    public interface ICommandButton
     {
         string TaskBaseURL { get; set; }
 
