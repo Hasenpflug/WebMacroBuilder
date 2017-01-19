@@ -37,8 +37,8 @@
                             <WrapPanel x:Name="pnlCommandRunner" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
                         </ScrollViewer>
                         <Button x:Name="btnStartTask" Content="Start Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="197,10,0,0" Height="39" Click="btnStartTask_Click"/>
-                        <Button x:Name="btnPauseTask" Content="Pause Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="366,10,0,0" Height="39"/>
-                        <Button x:Name="btnStopTask" Content="Stop Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="531,10,0,0" Height="39"/>
+                        <Button x:Name="btnPauseTask" Content="Pause Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="366,10,0,0" Height="39" Click="btnPauseTask_Click"/>
+                        <Button x:Name="btnStopTask" Content="Stop Task" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="531,10,0,0" Height="39" Click="btnStopTask_Click"/>
                     </Grid>
                 </Grid>
             </TabItem>

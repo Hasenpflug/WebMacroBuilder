@@ -258,5 +258,21 @@ namespace WebMacroBuilder
             btnStartTask.IsEnabled = false;
             TaskRunner.StartDriver();
         }
+
+        private void btnStopTask_Click(object sender, RoutedEventArgs e)
+        {
+            if (TaskRunner != null && TaskRunner.RunningState == RunnerState.Running)
+            {
+                TaskRunner.QuitDriver();
+                btnPauseTask.IsEnabled = false;
+                btnStopTask.IsEnabled = false;
+                btnStartTask.IsEnabled = true;
+            }
+        }
+
+        private void btnPauseTask_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

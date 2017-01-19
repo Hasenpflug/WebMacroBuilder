@@ -10,7 +10,7 @@ namespace WebMacroBuilder
 {
     public enum RunnerState
     {
-        Started,
+        Running,
         Paused,
         Stopped
     }
@@ -38,6 +38,18 @@ namespace WebMacroBuilder
             Driver = new ChromeDriver();
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl(Commands[0].Target);
+            RunCommands();
+        }
+
+        public void RunCommands()
+        {
+            foreach (ICommandButton command in Commands)
+            {
+                if (command.GetType() == typeof(ClickCommand))
+                {
+                    command.Run(Driver);
+                }
+            }
         }
 
         public void QuitDriver()

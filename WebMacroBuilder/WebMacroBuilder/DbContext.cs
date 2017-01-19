@@ -31,11 +31,14 @@ namespace WebMacroBuilder
 
         public async Task<List<CommandViewModel>> GetTaskCommands(ObjectId taskID)
         {
-            var collection = database.GetCollection<BsonDocument>("commands");
-            var filter = Builders<BsonDocument>.Filter.Eq("TaskID", taskID);
+            string taskBaseURL = "";
+            var collection = database.GetCollection<BsonDocument>("commands").Aggregate().Lookup("tasks", "TaskID", "_id", "Tasks");
+            var commandsFilter = Builders<BsonDocument>.Filter.Eq("TaskID", taskID);
+            var taskFilter = Builders<BsonDocument>.Filter.Eq("_id", taskID);
+
             List<CommandViewModel> viewModels = new List<CommandViewModel>();
 
-            using (var cursor = await collection.FindAsync(filter))
+            using (var cursor = await collection.ToCursorAsync())
             {
                 while (await cursor.MoveNextAsync())
                 {
@@ -47,12 +50,13 @@ namespace WebMacroBuilder
                             Enabled = document.GetValue("Enabled") != BsonNull.Value ? document.GetValue("Enabled").AsBoolean : false,
                             ID = document.GetValue("_id").AsObjectId,
                             TaskID = document.GetValue("TaskID").AsObjectId,
+                            TaskBaseURL = document.GetValue("Tasks")[0].AsBsonDocument.GetValue("BaseUrl") != BsonNull.Value ? document.GetValue("Tasks")[0].AsBsonDocument.GetValue("BaseUrl").AsString : "",
                             Name = document.GetValue("Name") != BsonNull.Value ? document.GetValue("Name").AsString : null,
                             Order = document.GetValue("Order") != BsonNull.Value ? document.GetValue("Order").AsInt32 : 0,
                             Type = document.GetValue("Type") != BsonNull.Value ? (CommandType)document.GetValue("Type").AsInt32 : CommandType.Click,
                             Selector = document.GetValue("Selector") != BsonNull.Value ? document.GetValue("Selector").AsString : "",
                             WaitSelector = document.GetValue("WaitSelector") != BsonNull.Value ? document.GetValue("WaitSelector").AsString : "",
-                            WaitForSeconds = document.GetValue("WaitForSeconds") != BsonNull.Value ? document.GetValue("WaitForSeconds").AsInt32 : 0                            
+                            WaitForSeconds = document.GetValue("WaitForSeconds") != BsonNull.Value ? document.GetValue("WaitForSeconds").AsInt32 : 0
                         };
 
                         viewModels.Add(viewModel);
@@ -168,7 +172,7 @@ namespace WebMacroBuilder
 
             for (int i = 1; i < taskIDs.Count; i++)
             {
-                filter = filter | Builders<BsonDocument>.Filter.Eq("_id", taskIDs[i]);                
+                filter = filter | Builders<BsonDocument>.Filter.Eq("_id", taskIDs[i]);
             }
 
             await collection.DeleteManyAsync(filter);

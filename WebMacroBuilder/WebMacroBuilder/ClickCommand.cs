@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,19 @@ namespace WebMacroBuilder
 
         public void Run(IWebDriver driver)
         {
+            try
+            {
+                (new WebDriverWait(driver, TimeSpan.FromSeconds(WaitForSeconds)).Until(m => m.FindElement(By.CssSelector(WaitSelector)))).FindElement(By.CssSelector(Selector)).Click();
+            }
+            catch(WebDriverTimeoutException ex)
+            {
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+
             return;
         }
 

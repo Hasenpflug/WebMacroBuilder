@@ -311,7 +311,7 @@
 var my_selector_generator = new CssSelectorGenerator;
 window.selector = 'null';
 
-document.body.addEventListener('click', function (event) {
+document.body.addEventListener('mousedown', function (event) {
     var newElement = event.target;
     var oldElement = document.querySelector(window.selector);
     var selector = my_selector_generator.getSelector(newElement);
@@ -319,6 +319,7 @@ document.body.addEventListener('click', function (event) {
     if (oldElement) {
         oldElement.style.backgroundColor = '';
     }
+
     window.selector = selector;
     newElement.style.backgroundColor = 'yellow';
 });
