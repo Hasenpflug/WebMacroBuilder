@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Controls;
 
 namespace WebMacroBuilder
@@ -44,7 +45,19 @@ namespace WebMacroBuilder
         {
             try
             {
-                (new WebDriverWait(driver, TimeSpan.FromSeconds(WaitForSeconds)).Until(m => m.FindElement(By.CssSelector(WaitSelector)))).FindElement(By.CssSelector(Selector)).Click();
+                for (int i = 0; i < WaitForSeconds * 1000; i++)
+			    {
+			        if (i % 500 == 0)
+                    {
+                        IWebElement waitElement = (driver as IJavaScriptExecutor).ExecuteScript("return document.querySelector('" + WaitSelector + "')") as IWebElement;
+                        if (waitElement != null)
+                        {
+                            IWebElement element = (driver as IJavaScriptExecutor).ExecuteScript("return document.querySelector('" + Selector + "')") as IWebElement;
+                            element.Click();
+                            break;
+                        }
+                    }
+			    }
             }
             catch(WebDriverTimeoutException ex)
             {

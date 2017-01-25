@@ -124,7 +124,7 @@ namespace WebMacroBuilder
             }
 
             this.btnClickSubmit.IsEnabled = false;
-            this.btnDeleteCommand.IsEnabled = false;
+            this.btnClickDelete.IsEnabled = false;
             this.btnClickCancel.IsEnabled = false;
             await Task.Run(() => StartDriver());
             this.btnGetSelector.IsEnabled = true;
@@ -152,7 +152,7 @@ namespace WebMacroBuilder
             await Task.Run(() => QuitDriver());
             this.btnAddSelector.IsEnabled = true;
             this.btnClickSubmit.IsEnabled = true;
-            this.btnDeleteCommand.IsEnabled = true;
+            this.btnClickDelete.IsEnabled = true;
             this.btnClickCancel.IsEnabled = true;
         }
 
@@ -178,6 +178,33 @@ namespace WebMacroBuilder
             await window.Context.DeleteCommand(Command);
             await window.PopulateNodeGrid(Command.TaskID);
             this.Close();
+        }
+
+        private async void btnSendKeys_Submit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Command commandToCreate = new Command()
+                {
+                    Enabled = this.chkEnabled.IsChecked.Value,
+                    Name = this.txtName.Text,
+                    Order = Command.Order,
+                    Selector = this.txtSelector.Text,
+                    TaskID = Command.TaskID,
+                    Type = (CommandType)this.cboType.SelectedIndex,
+                    WaitForSeconds = !String.IsNullOrEmpty(this.txtWaitFor.Text) ? Convert.ToInt16(this.txtWaitFor.Text) : 0,
+                    WaitSelector = this.txtWaitSelector.Text
+                };
+
+                MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
+                await window.Context.InsertCommand(commandToCreate);
+                await window.PopulateNodeGrid(Command.TaskID);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Something went wrong with the conversion probably: " + ex.Message);
+            }
         }
     }
 }
