@@ -27,6 +27,8 @@ namespace WebMacroBuilder
     /// </summary>
     public partial class CommandCreate : Window
     {
+        private bool isInitializing = true;
+
         private IWebDriver Driver { get; set; }
 
         private Command Command { get; set; }
@@ -35,7 +37,9 @@ namespace WebMacroBuilder
 
         public CommandCreate()
         {
+            isInitializing = true;
             InitializeComponent();
+            isInitializing = false;
         }
 
         public CommandCreate(CommandCreator creator)
@@ -59,16 +63,38 @@ namespace WebMacroBuilder
             this.txtWaitFor.Text = Command.WaitForSeconds.ToString();
         }
 
+        public CommandCreate(TypeCommand creator)
+            : this()
+        {
+            CommandURL = creator.TaskBaseURL;
+            Command = new Command(creator.ID, creator.TaskID, creator.Name, creator.Order, CommandType.Click, creator.Enabled, creator.Selector, creator.WaitSelector, creator.WaitForSeconds);
+            this.lblCommandCreate.Content = "Command Update";
+            this.txtName.Text = Command.Name;
+            this.cboType.SelectedIndex = (int)Command.Type;
+            this.chkEnabled.IsChecked = Command.Enabled;
+            this.txtSelector.Text = Command.Selector;
+            this.txtWaitSelector.Text = Command.WaitSelector;
+            this.txtWaitFor.Text = Command.WaitForSeconds.ToString();
+            this.txtSendKeysText.Text = Command.SendKeysText;
+        }
+
         private void cboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (isInitializing)
+            {
+                return;
+            }
+
             string type = (e.AddedItems[0] as ListBoxItem).Content.ToString();
 
             switch (type)
             {
                 case "Click":
                     this.dtgClickForm.Visibility = System.Windows.Visibility.Visible;
+                    this.dtgSendKeysForm.Visibility = System.Windows.Visibility.Collapsed;
                     break;
                 case "Type":
+                    this.dtgSendKeysForm.Visibility = System.Windows.Visibility.Visible;
                     this.dtgClickForm.Visibility = System.Windows.Visibility.Collapsed;
                     break;
             }
@@ -78,18 +104,9 @@ namespace WebMacroBuilder
         {
             try
             {
-                Command commandToCreate = new Command()
-                {
-                    Enabled = this.chkEnabled.IsChecked.Value,
-                    Name = this.txtName.Text,
-                    Order = Command.Order,
-                    Selector = this.txtSelector.Text,
-                    TaskID = Command.TaskID,
-                    Type = (CommandType)this.cboType.SelectedIndex,
-                    WaitForSeconds =  !String.IsNullOrEmpty(this.txtWaitFor.Text) ? Convert.ToInt16(this.txtWaitFor.Text) : 0,
-                    WaitSelector = this.txtWaitSelector.Text
-                };
+                Command commandToCreate = BuildNewCommand();
 
+                commandToCreate.SendKeysText = this.txtSendKeysText.Text;
                 MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
                 await window.Context.InsertCommand(commandToCreate);
                 await window.PopulateNodeGrid(Command.TaskID);
@@ -180,22 +197,30 @@ namespace WebMacroBuilder
             this.Close();
         }
 
+        private Command BuildNewCommand()
+        {
+            Command commandToCreate = new Command()
+            {
+                Enabled = this.chkEnabled.IsChecked.Value,
+                Name = this.txtName.Text,
+                Order = Command.Order,
+                Selector = this.txtSelector.Text,
+                TaskID = Command.TaskID,
+                Type = (CommandType)this.cboType.SelectedIndex,
+                WaitForSeconds = !String.IsNullOrEmpty(this.txtWaitFor.Text) ? Convert.ToInt16(this.txtWaitFor.Text) : 0,
+                WaitSelector = this.txtWaitSelector.Text
+            };
+
+            return commandToCreate;
+        }
+
         private async void btnSendKeys_Submit_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Command commandToCreate = new Command()
-                {
-                    Enabled = this.chkEnabled.IsChecked.Value,
-                    Name = this.txtName.Text,
-                    Order = Command.Order,
-                    Selector = this.txtSelector.Text,
-                    TaskID = Command.TaskID,
-                    Type = (CommandType)this.cboType.SelectedIndex,
-                    WaitForSeconds = !String.IsNullOrEmpty(this.txtWaitFor.Text) ? Convert.ToInt16(this.txtWaitFor.Text) : 0,
-                    WaitSelector = this.txtWaitSelector.Text
-                };
+                Command commandToCreate = BuildNewCommand();
 
+                commandToCreate.SendKeysText = txtSendKeysText.Text;
                 MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
                 await window.Context.InsertCommand(commandToCreate);
                 await window.PopulateNodeGrid(Command.TaskID);

@@ -120,7 +120,10 @@ namespace WebMacroBuilder
                         window.pnlCommandViewer.Children.Add(clickCommand);
                         break;
                     case CommandType.Type:
-
+                        TypeCommand typeCommand = new TypeCommand(commands[i].ID, commands[i].TaskID, commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name, 
+                            commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds, commands[i].SendKeysText);
+                        typeCommand.Click += btnCommandCreator_Click;
+                        window.pnlCommandViewer.Children.Add(typeCommand);
                         break;
                 }
 
@@ -150,7 +153,9 @@ namespace WebMacroBuilder
                         window.pnlCommandRunner.Children.Add(clickCommand);
                         break;
                     case CommandType.Type:
-
+                        TypeCommand typeCommand = new TypeCommand(commands[i].ID, commands[i].TaskID, commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name,
+                            commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds, commands[i].SendKeysText);
+                        window.pnlCommandRunner.Children.Add(typeCommand);
                         break;
                 }
             }
@@ -168,6 +173,10 @@ namespace WebMacroBuilder
             {
                 ShowClickCommandUpdate((ClickCommand)sender);
             }
+            else if (sender.GetType() == typeof(TypeCommand))
+            {
+                ShowTypeCommandUpdate((TypeCommand)sender);
+            }
         }
 
         public void ShowCommandCreate(CommandCreator creator)
@@ -177,6 +186,12 @@ namespace WebMacroBuilder
         }
 
         public void ShowClickCommandUpdate(ClickCommand command)
+        {
+            CommandCreate commandCreateWindow = new CommandCreate(command);
+            commandCreateWindow.Show();
+        }
+
+        public void ShowTypeCommandUpdate(TypeCommand command)
         {
             CommandCreate commandCreateWindow = new CommandCreate(command);
             commandCreateWindow.Show();

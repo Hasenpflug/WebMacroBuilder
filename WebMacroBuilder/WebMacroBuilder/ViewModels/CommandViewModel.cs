@@ -30,12 +30,14 @@ namespace WebMacroBuilder.ViewModels
 
         public int WaitForSeconds { get; set; }
 
+        public string SendKeysText { get; set; }
+
         public CommandViewModel()
         {
 
         }
 
-        public CommandViewModel(ObjectId id, ObjectId taskID, string baseURL, string name, int order, CommandType type, string selector, string waitSelector, int waitForSeconds)
+        public CommandViewModel(ObjectId id, ObjectId taskID, string baseURL, string name, int order, CommandType type, string selector, string waitSelector, int waitForSeconds, string sendKeysText)
         {
             ID = id;
             TaskID = taskID;
@@ -45,6 +47,7 @@ namespace WebMacroBuilder.ViewModels
             Selector = selector;
             WaitSelector = waitSelector;
             WaitForSeconds = waitForSeconds;
+            SendKeysText = sendKeysText;
         }        
     }
 }

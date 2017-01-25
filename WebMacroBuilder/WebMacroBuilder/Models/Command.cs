@@ -36,6 +36,8 @@ namespace WebMacroBuilder.Models
 
         public int WaitForSeconds { get; set; }
 
+        public string SendKeysText { get; set; }
+
         public Command() { }
 
         public Command(ObjectId commandID, ObjectId taskID, string name, int order, CommandType type, bool enabled, string selector, string waitSelector, int waitForSeconds)

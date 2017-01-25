@@ -6,12 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Controls;
 
 namespace WebMacroBuilder
 {
-    public class ClickCommand : PanelItems, ICommandButton
+    public class TypeCommand : PanelItems, ICommandButton
     {
         public ButtonState State { get; set; }
 
@@ -24,8 +22,11 @@ namespace WebMacroBuilder
         public string WaitSelector { get; set; }
 
         public int WaitForSeconds { get; set; }
-        
-        public ClickCommand(ObjectId commandID, ObjectId taskID, string taskBaseURL, int order, string name, bool enabled, string label, string target, string selector, string waitSelector, int waitForSeconds)
+
+        public string SendKeysText { get; set; }
+
+        public TypeCommand(ObjectId commandID, ObjectId taskID, string taskBaseURL, int order, string name, bool enabled, string label, string target, string selector,
+            string waitSelector, int waitForSeconds, string sendKeysText)
             : base(name)
         {
             ID = commandID;
@@ -39,13 +40,14 @@ namespace WebMacroBuilder
             Selector = selector;
             WaitSelector = waitSelector;
             WaitForSeconds = waitForSeconds;
+            SendKeysText = sendKeysText;
         }
 
         public void Run(IWebDriver driver)
         {
             (new WebDriverWait(driver, TimeSpan.FromSeconds(5))).Until(m => (m as IJavaScriptExecutor).ExecuteScript("return document.querySelector('" + WaitSelector + "')") as IWebElement);
             IWebElement element = (driver as IJavaScriptExecutor).ExecuteScript("return document.querySelector('" + Selector + "')") as IWebElement;
-            element.Click();
+            element.SendKeys(SendKeysText);
         }
 
         public void Stop(IWebDriver driver)

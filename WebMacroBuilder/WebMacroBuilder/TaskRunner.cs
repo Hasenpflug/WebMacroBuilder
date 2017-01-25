@@ -45,10 +45,7 @@ namespace WebMacroBuilder
         {
             foreach (ICommandButton command in Commands)
             {
-                if (command.GetType() == typeof(ClickCommand))
-                {
-                    command.Run(Driver);
-                }
+                command.Run(Driver);
             }
         }
 
