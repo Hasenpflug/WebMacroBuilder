@@ -87,6 +87,7 @@
     <Compile Include="Models\Command.cs" />
     <Compile Include="Models\MacroTask.cs" />
     <Compile Include="PanelItems.cs" />
+    <Compile Include="SaveCommand.cs" />
     <Compile Include="StartNode.cs" />
     <Compile Include="TaskCreate.xaml.cs">
       <DependentUpon>TaskCreate.xaml</DependentUpon>

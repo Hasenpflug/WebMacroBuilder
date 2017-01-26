@@ -125,6 +125,12 @@ namespace WebMacroBuilder
                         typeCommand.Click += btnCommandCreator_Click;
                         window.pnlCommandViewer.Children.Add(typeCommand);
                         break;
+                    case CommandType.Save:
+                        SaveCommand saveCommand = new SaveCommand(commands[i].ID, commands[i].TaskID, commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name,
+                            commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds, commands[i].Database, commands[i].Collection);
+                        saveCommand.Click += btnCommandCreator_Click;
+                        window.pnlCommandViewer.Children.Add(saveCommand);
+                        break;
                 }
 
                 CommandCreator endingCreator = new CommandCreator(i + 1, taskBaseURL, taskID);
@@ -177,6 +183,10 @@ namespace WebMacroBuilder
             {
                 ShowTypeCommandUpdate((TypeCommand)sender);
             }
+            else if (sender.GetType() == typeof(SaveCommand))
+            {
+                ShowSaveCommandUpdate((SaveCommand)sender);
+            }
         }
 
         public void ShowCommandCreate(CommandCreator creator)
@@ -192,6 +202,12 @@ namespace WebMacroBuilder
         }
 
         public void ShowTypeCommandUpdate(TypeCommand command)
+        {
+            CommandCreate commandCreateWindow = new CommandCreate(command);
+            commandCreateWindow.Show();
+        }
+
+        public void ShowSaveCommandUpdate(SaveCommand command)
         {
             CommandCreate commandCreateWindow = new CommandCreate(command);
             commandCreateWindow.Show();

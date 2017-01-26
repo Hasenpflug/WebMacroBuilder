@@ -52,6 +52,17 @@
             <Label x:Name="lblSendKeysText" Content="Text: " HorizontalAlignment="Left" Margin="22,65,0,0" VerticalAlignment="Top" FontSize="16"/>
             <TextBox x:Name="txtSendKeysText" HorizontalAlignment="Left" Height="215" Margin="68,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
         </Grid>
+        <Grid x:Name="dtgSaveForm" HorizontalAlignment="Left" Height="527" Margin="498,19,0,0" VerticalAlignment="Top" Width="437">
+            <Button x:Name="btnSaveSubmit" Content="Submit" HorizontalAlignment="Left" Margin="23,470,0,0" VerticalAlignment="Top" Width="103" Height="33" FontSize="16" Click="btnSaveSubmit_Click"/>
+            <Button x:Name="btnSaveCancel" Content="Cancel" HorizontalAlignment="Left" Margin="327,470,0,0" VerticalAlignment="Top" Width="100" Height="33" FontSize="16" Click="btnClick_Cancel_Click"/>
+            <Button x:Name="btnSaveDelete" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" Margin="181,470,0,0" Height="33" FontSize="16" Click="btnDeleteCommand_Click"/>
+            <ComboBox x:Name="cboSaveDatabase" HorizontalAlignment="Left" Height="31" Margin="111,53,0,0" VerticalAlignment="Top" Width="200" FontSize="16" SelectionChanged="cboSaveDatabase_SelectionChanged"/>
+            <Label x:Name="lblSaveDatabase" Content="Database: " HorizontalAlignment="Left" Margin="23,53,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label x:Name="lblSaveCollection" Content="Collection:" HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <ComboBox x:Name="cboSaveCollection" HorizontalAlignment="Left" Margin="111,106,0,0" VerticalAlignment="Top" Width="200" FontSize="16"/>
+            <Label x:Name="lblSaveCustomCollection" Content="Custom Collection: " HorizontalAlignment="Left" Margin="23,152,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox x:Name="txtSaveCustomCollection" HorizontalAlignment="Left" Height="23" Margin="170,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16"/>
+        </Grid>
 
     </Grid>
 </Window>

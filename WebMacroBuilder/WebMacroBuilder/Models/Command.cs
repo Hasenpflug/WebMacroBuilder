@@ -38,6 +38,10 @@ namespace WebMacroBuilder.Models
 
         public string SendKeysText { get; set; }
 
+        public string Database { get; set; }
+
+        public string Collection { get; set; }
+
         public Command() { }
 
         public Command(ObjectId commandID, ObjectId taskID, string name, int order, CommandType type, bool enabled, string selector, string waitSelector, int waitForSeconds)

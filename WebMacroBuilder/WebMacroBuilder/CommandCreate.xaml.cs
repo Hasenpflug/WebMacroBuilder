@@ -47,6 +47,9 @@ namespace WebMacroBuilder
         {
             CommandURL = creator.CommandURL;
             Command = new Command(ObjectId.Empty, creator.TaskID, "", creator.Order, CommandType.Click, true, "", "", 0);
+            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
+            cboSaveDatabase.ItemsSource = window.Context.GetDatabases();
+            cboSaveDatabase.SelectedIndex = 1;
         }
 
         public CommandCreate(ClickCommand creator)
@@ -78,6 +81,20 @@ namespace WebMacroBuilder
             this.txtSendKeysText.Text = Command.SendKeysText;
         }
 
+        public CommandCreate(SaveCommand creator)
+            : this()
+        {
+            CommandURL = creator.TaskBaseURL;
+            Command = new Command(creator.ID, creator.TaskID, creator.Name, creator.Order, CommandType.Click, creator.Enabled, creator.Selector, creator.WaitSelector, creator.WaitForSeconds);
+            this.lblCommandCreate.Content = "Command Update";
+            this.txtName.Text = Command.Name;
+            this.cboType.SelectedIndex = (int)Command.Type;
+            this.chkEnabled.IsChecked = Command.Enabled;
+            this.txtSelector.Text = Command.Selector;
+            this.txtWaitSelector.Text = Command.WaitSelector;
+            this.txtWaitFor.Text = Command.WaitForSeconds.ToString();
+        }
+
         private void cboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (isInitializing)
@@ -90,12 +107,19 @@ namespace WebMacroBuilder
             switch (type)
             {
                 case "Click":
-                    this.dtgClickForm.Visibility = System.Windows.Visibility.Visible;
-                    this.dtgSendKeysForm.Visibility = System.Windows.Visibility.Collapsed;
+                    this.dtgClickForm.Visibility = Visibility.Visible;
+                    this.dtgSendKeysForm.Visibility = Visibility.Collapsed;
+                    this.dtgSaveForm.Visibility = Visibility.Collapsed;
                     break;
                 case "Type":
-                    this.dtgSendKeysForm.Visibility = System.Windows.Visibility.Visible;
-                    this.dtgClickForm.Visibility = System.Windows.Visibility.Collapsed;
+                    this.dtgSendKeysForm.Visibility = Visibility.Visible;
+                    this.dtgClickForm.Visibility = Visibility.Collapsed;
+                    this.dtgSaveForm.Visibility = Visibility.Collapsed;
+                    break;
+                case "Save":
+                    this.dtgSaveForm.Visibility = Visibility.Visible;
+                    this.dtgSendKeysForm.Visibility = Visibility.Collapsed;
+                    this.dtgClickForm.Visibility = Visibility.Collapsed;                    
                     break;
             }
         }
@@ -230,6 +254,37 @@ namespace WebMacroBuilder
             {
                 System.Windows.MessageBox.Show("Something went wrong with the conversion probably: " + ex.Message);
             }
+        }
+
+        private async void btnSaveSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Command commandToCreate = BuildNewCommand();
+
+                commandToCreate.Database = cboSaveDatabase.Text;
+                commandToCreate.Collection = cboSaveCollection.IsEnabled ? cboSaveCollection.Text : txtSaveCustomCollection.Text;
+                MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
+                await window.Context.InsertCommand(commandToCreate);
+                await window.PopulateNodeGrid(Command.TaskID);
+                                
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Something went wrong with the conversion probably: " + ex.Message);
+            }
+        }
+
+        private void cboSaveDatabase_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isInitializing)
+            {
+                return;
+            }
+
+            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
+            window.Context.GetCollections(cboSaveDatabase.Text);
         }
     }
 }

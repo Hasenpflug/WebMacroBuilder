@@ -29,6 +29,17 @@ namespace WebMacroBuilder
             }
         }
 
+        public DbContext(string databaseName)
+        {
+            client = new MongoClient("mongodb://localhost");
+            database = client.GetDatabase(databaseName);
+
+            if (client == null || database == null)
+            {
+                throw new Exception();
+            }
+        }
+
         public async Task<List<CommandViewModel>> GetTaskCommands(ObjectId taskID)
         {
             string taskBaseURL = "";
@@ -56,7 +67,8 @@ namespace WebMacroBuilder
                             Type = document.GetValue("Type") != BsonNull.Value ? (CommandType)document.GetValue("Type").AsInt32 : CommandType.Click,
                             Selector = document.GetValue("Selector") != BsonNull.Value ? document.GetValue("Selector").AsString : "",
                             WaitSelector = document.GetValue("WaitSelector") != BsonNull.Value ? document.GetValue("WaitSelector").AsString : "",
-                            WaitForSeconds = document.GetValue("WaitForSeconds") != BsonNull.Value ? document.GetValue("WaitForSeconds").AsInt32 : 0
+                            WaitForSeconds = document.GetValue("WaitForSeconds") != BsonNull.Value ? document.GetValue("WaitForSeconds").AsInt32 : 0,
+                            SendKeysText = (CommandType)document.GetValue("Type").AsInt32 == CommandType.Type ? document.GetValue("SendKeysText") != BsonNull.Value ? document.GetValue("SendKeysText").AsString : "" : "",
                         };
 
                         viewModels.Add(viewModel);
@@ -199,6 +211,45 @@ namespace WebMacroBuilder
 
             await collection.DeleteOneAsync(deleteFilter);
             await collection.UpdateManyAsync(updateFilter, Builders<BsonDocument>.Update.Inc("Order", -1));
+        }
+
+        public List<string> GetDatabases()
+        {
+            List<string> databases = new List<string>();
+
+            using (var cursor = client.ListDatabases())
+            {
+                while (cursor.MoveNext())
+                {
+                    var batch = cursor.Current;
+                    foreach (var document in batch)
+                    {
+                        databases.Add(document.GetValue("name").AsString);
+                    }
+                }
+            }
+
+            return databases;
+        }
+
+        public List<string> GetCollections(string databaseName)
+        {
+            List<string> collections = new List<string>();
+            database = client.GetDatabase(databaseName);
+
+            using (var cursor = database.ListCollections())
+            {
+                while (cursor.MoveNext())
+                {
+                    var batch = cursor.Current;
+                    foreach (var document in batch)
+                    {
+                        collections.Add(document.GetValue("name").AsString);
+                    }
+                }
+            }
+
+            return collections;
         }
     }
 }
