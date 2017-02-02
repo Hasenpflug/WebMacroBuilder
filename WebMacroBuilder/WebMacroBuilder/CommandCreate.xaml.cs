@@ -40,16 +40,15 @@ namespace WebMacroBuilder
             isInitializing = true;
             InitializeComponent();
             isInitializing = false;
+            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;            
+            cboSaveCollection.ItemsSource = window.Context.GetCollections();
         }
 
         public CommandCreate(CommandCreator creator)
             : this()
         {
             CommandURL = creator.CommandURL;
-            Command = new Command(ObjectId.Empty, creator.TaskID, "", creator.Order, CommandType.Click, true, "", "", 0);
-            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
-            cboSaveDatabase.ItemsSource = window.Context.GetDatabases();
-            cboSaveDatabase.SelectedIndex = 1;
+            Command = new Command(ObjectId.Empty, creator.TaskID, "", creator.Order, CommandType.Click, true, "", "", 0);            
         }
 
         public CommandCreate(ClickCommand creator)
@@ -84,6 +83,7 @@ namespace WebMacroBuilder
         public CommandCreate(SaveCommand creator)
             : this()
         {
+            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
             CommandURL = creator.TaskBaseURL;
             Command = new Command(creator.ID, creator.TaskID, creator.Name, creator.Order, CommandType.Click, creator.Enabled, creator.Selector, creator.WaitSelector, creator.WaitForSeconds);
             this.lblCommandCreate.Content = "Command Update";
@@ -261,9 +261,9 @@ namespace WebMacroBuilder
             try
             {
                 Command commandToCreate = BuildNewCommand();
-
-                commandToCreate.Database = cboSaveDatabase.Text;
-                commandToCreate.Collection = cboSaveCollection.IsEnabled ? cboSaveCollection.Text : txtSaveCustomCollection.Text;
+                bool isCustomCollection = !String.IsNullOrEmpty(txtSaveCustomCollection.Text);
+                commandToCreate.Collection = !isCustomCollection ? cboSaveCollection.Text : txtSaveCustomCollection.Text;
+                commandToCreate.AttributeValue = cboSaveAttribute.Text;
                 MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
                 await window.Context.InsertCommand(commandToCreate);
                 await window.PopulateNodeGrid(Command.TaskID);
@@ -274,17 +274,6 @@ namespace WebMacroBuilder
             {
                 System.Windows.MessageBox.Show("Something went wrong with the conversion probably: " + ex.Message);
             }
-        }
-
-        private void cboSaveDatabase_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (isInitializing)
-            {
-                return;
-            }
-
-            MainWindow window = (MainWindow)System.Windows.Application.Current.MainWindow;
-            window.Context.GetCollections(cboSaveDatabase.Text);
         }
     }
 }

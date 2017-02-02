@@ -232,11 +232,10 @@ namespace WebMacroBuilder
             return databases;
         }
 
-        public List<string> GetCollections(string databaseName)
+        public List<string> GetCollections()
         {
             List<string> collections = new List<string>();
-            database = client.GetDatabase(databaseName);
-
+            
             using (var cursor = database.ListCollections())
             {
                 while (cursor.MoveNext())

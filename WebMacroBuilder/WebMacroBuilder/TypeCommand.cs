@@ -45,7 +45,6 @@ namespace WebMacroBuilder
 
         public void Run(IWebDriver driver)
         {
-            (new WebDriverWait(driver, TimeSpan.FromSeconds(5))).Until(m => (m as IJavaScriptExecutor).ExecuteScript("return document.querySelector('" + WaitSelector + "')") as IWebElement);
             IWebElement element = (driver as IJavaScriptExecutor).ExecuteScript("return document.querySelector('" + Selector + "')") as IWebElement;
             element.SendKeys(SendKeysText);
         }
