@@ -23,12 +23,12 @@ namespace WebMacroBuilder
 
         public int WaitForSeconds { get; set; }
 
-        public string Database { get; set; }
+        public string AttributeValue { get; set; }
 
         public string Collection { get; set; }
 
         public SaveCommand(ObjectId commandID, ObjectId taskID, string taskBaseURL, int order, string name, bool enabled, string label, 
-            string target, string selector, string waitSelector, int waitForSeconds, string database, string collection)
+            string target, string selector, string waitSelector, int waitForSeconds, string attributeValue, string collection)
             : base(name)
         {
             ID = commandID;
@@ -42,7 +42,7 @@ namespace WebMacroBuilder
             Selector = selector;
             WaitSelector = waitSelector;
             WaitForSeconds = waitForSeconds;
-            Database = database;
+            AttributeValue = attributeValue;
             Collection = collection;
         }
 

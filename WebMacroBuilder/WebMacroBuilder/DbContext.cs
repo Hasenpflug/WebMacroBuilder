@@ -69,6 +69,8 @@ namespace WebMacroBuilder
                             WaitSelector = document.GetValue("WaitSelector") != BsonNull.Value ? document.GetValue("WaitSelector").AsString : "",
                             WaitForSeconds = document.GetValue("WaitForSeconds") != BsonNull.Value ? document.GetValue("WaitForSeconds").AsInt32 : 0,
                             SendKeysText = (CommandType)document.GetValue("Type").AsInt32 == CommandType.Type ? document.GetValue("SendKeysText") != BsonNull.Value ? document.GetValue("SendKeysText").AsString : "" : "",
+                            Collection = (CommandType)document.GetValue("Type").AsInt32 == CommandType.Save ? document.GetValue("Collection").AsString != BsonNull.Value ? document.GetValue("Collection").AsString : "" : "",
+                            AttributeValue = (CommandType)document.GetValue("Type").AsInt32 == CommandType.Save ? document.GetValue("AttributeValue").AsString != BsonNull.Value ? document.GetValue("AttributeValue").AsString : "" : "",
                         };
 
                         viewModels.Add(viewModel);
@@ -164,6 +166,15 @@ namespace WebMacroBuilder
             var filter = Builders<BsonDocument>.Filter.Eq("TaskID", command.TaskID) & Builders<BsonDocument>.Filter.Gte("Order", command.Order) & !Builders<BsonDocument>.Filter.Eq("Name", command.Name);
             BsonDocument document = command.ToBsonDocument();
             document.Remove("ID");
+            if (command.Type != CommandType.Type)
+            {
+                document.Remove("SendKeysText");
+            }
+            else if (command.Type != CommandType.Save)
+            {
+                document.Remove("Collection");
+                document.Remove("AttributeValue");
+            }
 
             await collection.InsertOneAsync(document);
             await collection.UpdateManyAsync(filter, Builders<BsonDocument>.Update.Inc("Order", 1));

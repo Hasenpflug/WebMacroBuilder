@@ -127,7 +127,7 @@ namespace WebMacroBuilder
                         break;
                     case CommandType.Save:
                         SaveCommand saveCommand = new SaveCommand(commands[i].ID, commands[i].TaskID, commands[i].TaskBaseURL, commands[i].Order, "btn" + commands[i].Name, commands[i].Enabled, commands[i].Name,
-                            commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds, commands[i].Database, commands[i].Collection);
+                            commands[i].TaskBaseURL, commands[i].Selector, commands[i].WaitSelector, commands[i].WaitForSeconds, commands[i].AttributeValue, commands[i].Collection);
                         saveCommand.Click += btnCommandCreator_Click;
                         window.pnlCommandViewer.Children.Add(saveCommand);
                         break;
